@@ -1,0 +1,70 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXGroup section */
+		4620EE0C2D76E24800F1D6AD = {
+			isa = PBXGroup;
+			children = (
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		4620EE0D2D76E24800F1D6AD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1620;
+			};
+			buildConfigurationList = 4620EE102D76E24800F1D6AD /* Build configuration list for PBXProject "mutiple_channel_demo" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4620EE0C2D76E24800F1D6AD;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		4620EE112D76E24800F1D6AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		4620EE122D76E24800F1D6AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4620EE102D76E24800F1D6AD /* Build configuration list for PBXProject "mutiple_channel_demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4620EE112D76E24800F1D6AD /* Debug */,
+				4620EE122D76E24800F1D6AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4620EE0D2D76E24800F1D6AD /* Project object */;
+}
