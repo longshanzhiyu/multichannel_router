@@ -1,0 +1,6 @@
+framework module Pods_ChannelB {
+  umbrella header "Pods-ChannelB-umbrella.h"
+
+  export *
+  module * { export * }
+}

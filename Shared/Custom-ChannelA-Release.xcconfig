@@ -1,0 +1,4 @@
+#include "Pods/Target Support Files/Pods-ChannelA/Pods-ChannelA.release.xcconfig"
+
+// 自定义配置
+API_BASE_URL = https:\/\/api.example.com
