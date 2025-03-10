@@ -22,12 +22,43 @@ class ViewController: UIViewController {
 
     @IBAction func goNextPage(_ sender: UIButton) {
         Task { @MainActor in
-            guard let params = UserProfileParams(query: [
-                "userId": "123",
-                "isVIP": true
-            ]) else { return  }
             
-            try await Router.navigate("/user/profile", params: params)
+            
+            
+            await openSettings()
+            return
+            
+//            guard let params = UserProfileParams(query: [
+//                "userId": "123",
+//                "isVIP": true
+//            ]) else { return  }
+//            
+//            // 示例 URL: myapp://products/detail?id=123&variant=pro
+////            let url = URL(string: "myapp://www.ireader.com/products/detail?id=123&variant=pro")!
+////            await DeepLinkHandler.handle(url: url)
+//            
+//            try await Router.navigate("/user/profile", params: params, interceptors: [AuthInterceptor()])
+        }
+    }
+    
+    func openSettings() async {
+        guard let params = SettingsParams(query: [
+            "section": "privacy",
+            "requiresAuth": true
+        ]) else { return }
+        
+        let authInterceptor = AuthInterceptor()
+        
+        do {
+            try await Router.navigate(
+                "/app/settings",
+                params: params,
+                interceptors: [authInterceptor]
+            )
+        } catch let error as RouteError {
+//            handlePresentError(error)
+        } catch {
+            print("Unknown error: \(error)")
         }
     }
     
