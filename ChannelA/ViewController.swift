@@ -25,8 +25,8 @@ class ViewController: UIViewController {
             
             
             
-            await openSettings()
-            return
+//            await openSettings()
+//            return
             
 //            guard let params = UserProfileParams(query: [
 //                "userId": "123",
@@ -34,9 +34,9 @@ class ViewController: UIViewController {
 //            ]) else { return  }
 //            
 //            // 示例 URL: myapp://products/detail?id=123&variant=pro
-////            let url = URL(string: "myapp://www.ireader.com/products/detail?id=123&variant=pro")!
-////            await DeepLinkHandler.handle(url: url)
-//            
+            let url = URL(string: "myapp://www.ireader.com/tab/profile?id=123&variant=pro")!
+            await DeepLinkHandler.handle(url: url)
+            
 //            try await Router.navigate("/user/profile", params: params, interceptors: [AuthInterceptor()])
         }
     }

@@ -50,6 +50,14 @@ class AppInit {
         }
     )
     
+    static let setRootTab = Route<EmptyParams>(
+        path: "/",
+        transition: .setRoot(animated: true),
+        handler: { _ in
+            return MainTabBarController.shared
+        }
+    )
+    
     static let switchHomeRoute = Route<EmptyParams>(
         path: "/tab/home",
         transition: .switchTab(index: 0)
@@ -65,7 +73,7 @@ class AppInit {
     )
 
     static func setupRoutes() {
-        
+        Router.register(setRootTab)
         Router.register(productRoute)
         Router.register(profileRoute)
         Router.register(settingsRoute)

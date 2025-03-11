@@ -7,180 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AF720156-CE67-40A9-870C-C1EC106C6DF9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shared/Router/Core/Router.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "navigate(_:params:interceptors:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F40E26FC-CC88-4408-8687-2213A9D60EAB"
+            uuid = "A42342C1-7BDB-43D4-907D-595950B67319"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shared/Router/Core/Router.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "navigate(_:params:interceptors:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F40E26FC-CC88-4408-8687-2213A9D60EAB - d9e7d9dbc9367075"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for static ChannelA.Router.navigate(_: Swift.String, params: ChannelA.RouteParams, interceptors: Swift.Array&lt;ChannelA.RouteInterceptor&gt;) async throws -&gt; ()"
-                  moduleName = "ChannelA.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ireader/Desktop/mutiple_channel_demo/Shared/Router/Core/Router.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63">
-               </Location>
-               <Location
-                  uuid = "F40E26FC-CC88-4408-8687-2213A9D60EAB - 82ba3fb7275fbc73"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for static ChannelA.Router.navigate(_: Swift.String, params: ChannelA.RouteParams, interceptors: Swift.Array&lt;ChannelA.RouteInterceptor&gt;) async throws -&gt; ()"
-                  moduleName = "ChannelA.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ireader/Desktop/mutiple_channel_demo/Shared/Router/Core/Router.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1D216394-6434-45BF-B89D-D8004662D84E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shared/Router/Core/Router.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "performTransition(_:target:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1D216394-6434-45BF-B89D-D8004662D84E - 5692f0fbd886fc4c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static ChannelA.Router.performTransition(_: ChannelA.TransitionStyle, target: __C.UIViewController) throws -&gt; ()"
-                  moduleName = "ChannelA.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ireader/Desktop/mutiple_channel_demo/Shared/Router/Core/Router.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86">
-               </Location>
-               <Location
-                  uuid = "1D216394-6434-45BF-B89D-D8004662D84E - 5692f0fbd886fc4c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static ChannelA.Router.performTransition(_: ChannelA.TransitionStyle, target: __C.UIViewController) throws -&gt; ()"
-                  moduleName = "ChannelA.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ireader/Desktop/mutiple_channel_demo/Shared/Router/Core/Router.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86">
-               </Location>
-               <Location
-                  uuid = "1D216394-6434-45BF-B89D-D8004662D84E - 5692f0fbd886fc4c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static ChannelA.Router.performTransition(_: ChannelA.TransitionStyle, target: __C.UIViewController) throws -&gt; ()"
-                  moduleName = "ChannelA.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ireader/Desktop/mutiple_channel_demo/Shared/Router/Core/Router.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86">
-               </Location>
-               <Location
-                  uuid = "1D216394-6434-45BF-B89D-D8004662D84E - 5692f0fbd886fc4c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static ChannelA.Router.performTransition(_: ChannelA.TransitionStyle, target: __C.UIViewController) throws -&gt; ()"
-                  moduleName = "ChannelA.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ireader/Desktop/mutiple_channel_demo/Shared/Router/Core/Router.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86">
-               </Location>
-               <Location
-                  uuid = "1D216394-6434-45BF-B89D-D8004662D84E - 5692f0fbd886fc4c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static ChannelA.Router.performTransition(_: ChannelA.TransitionStyle, target: __C.UIViewController) throws -&gt; ()"
-                  moduleName = "ChannelA.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ireader/Desktop/mutiple_channel_demo/Shared/Router/Core/Router.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86">
-               </Location>
-               <Location
-                  uuid = "1D216394-6434-45BF-B89D-D8004662D84E - 5692f0fbd886fc4c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static ChannelA.Router.performTransition(_: ChannelA.TransitionStyle, target: __C.UIViewController) throws -&gt; ()"
-                  moduleName = "ChannelA.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ireader/Desktop/mutiple_channel_demo/Shared/Router/Core/Router.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4664E44F-E113-4F13-8016-3C29FB7F501F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shared/Router/Core/Router.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "switchTab(identifier:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A5D0D70-6492-49D4-9370-07BA39C7F313"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChannelA/UserProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

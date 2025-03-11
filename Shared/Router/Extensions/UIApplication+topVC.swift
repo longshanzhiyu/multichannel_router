@@ -22,6 +22,16 @@ extension UIApplication {
 }
 
 extension UIApplication {
+    var rootViewController: UIViewController? {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first {
+            return window.rootViewController
+        }
+        return nil
+    }
+}
+
+extension UIApplication {
     enum TopViewControllerError: Error {
         case noActiveWindowScene
         case noKeyWindow

@@ -18,4 +18,5 @@ enum TransitionStyle {
     case pop(animated: Bool)
     case switchTab(index: Int)  // 新增 Tab 切换类型
     case switchTabByIdentifier(String) // 按标识符切换
+    case setRoot(animated: Bool)
 }

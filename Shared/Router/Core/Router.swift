@@ -101,12 +101,44 @@ final class Router {
             
         case .switchTabByIdentifier(let id):
             try switchTab(identifier: id)
+            if ((self.rootViewController?.presentedViewController) != nil) {
+                self.rootViewController?.dismiss(animated: true)
+            }
+        
+        case .setRoot(let animated):
+            guard let rootVc = UIApplication.shared.rootViewController else {
+                throw RouteError.transitionFailed(description: "Missing root controller")
+            }
+            if let nav = rootVc as? UINavigationController {
+                var vcs = nav.viewControllers
+                vcs.insert(rootVc, at: 0)
+                nav.viewControllers = vcs
+                nav.popToRootViewController(animated: animated)
+            }
+            else {
+                
+            }
         }
     }
     
     // Tab 切换实现
     @MainActor
     private static func switchTab(index: Int) throws {
+        guard self.rootViewController != nil else {
+            throw RouteError.transitionFailed(description: "Router has no a root vc")
+        }
+        
+        if let tabVc = rootViewController as? UITabBarController {
+            self.tabBarController = tabVc
+        }
+        
+        if let tabVc = rootViewController as? UINavigationController {
+            guard let vc = tabVc.viewControllers.first as? UITabBarController else {
+                throw RouteError.transitionFailed(description: "Tab controller not registered")
+            }
+            self.tabBarController = vc
+        }
+        
         guard let tabBarController = self.tabBarController else {
             throw RouteError.transitionFailed(description: "Tab controller not registered")
         }
@@ -124,6 +156,22 @@ final class Router {
     
     @MainActor
     private static func switchTab(identifier: String) throws {
+        
+        guard self.rootViewController != nil else {
+            throw RouteError.transitionFailed(description: "Router has no a root vc")
+        }
+        
+        if let tabVc = rootViewController as? UITabBarController {
+            self.tabBarController = tabVc
+        }
+        
+        if let tabVc = rootViewController as? UINavigationController {
+            guard let vc = tabVc.viewControllers.first as? UITabBarController else {
+                throw RouteError.transitionFailed(description: "Tab controller not registered")
+            }
+            self.tabBarController = vc
+        }
+        
         guard let tabBarController = self.tabBarController else {
             throw RouteError.transitionFailed(description: "Tab controller not registered")
         }
@@ -145,6 +193,16 @@ final class Router {
     }
 }
 
+
+extension Router {
+    static var rootViewController: UIViewController? {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first {
+            return window.rootViewController
+        }
+        return nil
+    }
+}
 
 extension Router {
     static func debugPrintRoutes() {
