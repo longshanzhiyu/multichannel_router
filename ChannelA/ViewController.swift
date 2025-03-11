@@ -8,12 +8,21 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.title = "Home"
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.title = "Home"
+        
         let m1 = ComMoudle1()
         m1.introduce()
+        
         
         if let apiBaseURL = Bundle.main.object(forInfoDictionaryKey: "APIBaseURL") as? String {
             print("API Base URL: \(apiBaseURL)")
@@ -28,16 +37,16 @@ class ViewController: UIViewController {
 //            await openSettings()
 //            return
             
-//            guard let params = UserProfileParams(query: [
-//                "userId": "123",
-//                "isVIP": true
-//            ]) else { return  }
+            guard let params = UserProfileParams(query: [
+                "userId": "123",
+                "isVIP": true
+            ]) else { return  }
 //            
 //            // 示例 URL: myapp://products/detail?id=123&variant=pro
-            let url = URL(string: "myapp://www.longshanzhiyu.com/tab/profile?id=123&variant=pro")!
-            await DeepLinkHandler.handle(url: url)
+//            let url = URL(string: "myapp://www.longshanzhiyu.com/tab/profile?id=123&variant=pro")!
+//            await DeepLinkHandler.handle(url: url)
             
-//            try await Router.navigate("/user/profile", params: params, interceptors: [AuthInterceptor()])
+            try await Router.navigate("/user/profile", params: params, interceptors: [AuthInterceptor()])
         }
     }
     

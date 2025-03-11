@@ -27,7 +27,41 @@ class UserProfileViewController: UIViewController, TabIdentifiable {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .darkGray
+        
+        let button = UIButton(type: .custom)
+        button.setTitle("go to profile", for: .normal)
+        button.frame = CGRectMake(100, 300, 100, 30)
+        view.addSubview(button)
+        
+        button.addTarget(self, action: #selector(click), for: .touchUpInside)
     }
     
+    @objc func click() {
+        Task { @MainActor in
+            guard let params = EmptyParams(query: [:]) else {
+                return
+            }
+            try await Router.navigate(
+                "/tab/profile",
+                params: params,
+                interceptors: []
+            )
+        }
+//        guard let params = EmptyParams(query: [:]) else {
+//            return
+//        }
+//        
+//        do {
+//            try await Router.navigate(
+//                "/tab/profile",
+//                params: params,
+//                interceptors: []
+//            )
+//        } catch let error as RouteError {
+////            handlePresentError(error)
+//        } catch {
+//            print("Unknown error: \(error)")
+//        }
+    }
     
 }

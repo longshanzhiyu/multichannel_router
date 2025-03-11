@@ -10,5 +10,8 @@ import UIKit
 class ProfileController: UIViewController, TabIdentifiable {
     let tabIdentifier: String = "profile"
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "Profile"
+    }
 }

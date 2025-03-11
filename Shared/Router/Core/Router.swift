@@ -98,11 +98,20 @@ final class Router {
             
         case .switchTab(let index):
             try switchTab(index: index)
+            if ((self.rootViewController?.presentedViewController) != nil) {
+                self.rootViewController?.dismiss(animated: true)
+            }
+            if let nav = self.rootViewController as? UINavigationController {
+                nav.popToRootViewController(animated: true)
+            }
             
         case .switchTabByIdentifier(let id):
             try switchTab(identifier: id)
             if ((self.rootViewController?.presentedViewController) != nil) {
                 self.rootViewController?.dismiss(animated: true)
+            }
+            if let nav = self.rootViewController as? UINavigationController {
+                nav.popToRootViewController(animated: true)
             }
         
         case .setRoot(let animated):
