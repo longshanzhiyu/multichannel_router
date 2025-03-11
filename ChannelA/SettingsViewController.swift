@@ -26,8 +26,32 @@ final class SettingsViewController: UIViewController {
         
         view.backgroundColor = .green
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: DispatchWorkItem(block: {
-            
-        }))
+        let button = UIButton()
+        button.setTitle("back", for: .normal)
+        view.addSubview(button)
+        button.frame = CGRectMake(100, 300, 80, 30)
+        button.addTarget(self, action: #selector(goback), for: .touchUpInside)
+        
     }
+    
+    @objc func goback() {
+        
+        Task { @MainActor in
+            await gobackProfile()
+        }
+    }
+    
+    func gobackProfile() async {
+        guard let params = EmptyParams(query: [:]) else { return }
+        
+        do {
+            try await Router.navigate("/tab/profile", params: params)
+        } catch let error as RouteError {
+//            handlePresentError(error)
+            print(error.localizedDescription)
+        } catch {
+            print("Unknown error: \(error)")
+        }
+    }
+    
 }

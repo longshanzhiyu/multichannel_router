@@ -30,10 +30,11 @@ extension RouteParams {
 struct Route<Params: RouteParams>: RouteProtocol {
     let path: String
     let transition: TransitionStyle
-    private let handler: (Params) -> UIViewController
+    private let handler: ((Params) -> UIViewController)?
     
     var paramsType: RouteParams.Type { Params.self }
     
+    // 用于需要生成 VC 的路由
     init(
         path: String,
         transition: TransitionStyle,
@@ -44,13 +45,55 @@ struct Route<Params: RouteParams>: RouteProtocol {
         self.handler = handler
     }
     
-    func createViewController(params: RouteParams) throws -> UIViewController {
+    // 用于不需要生成 VC 的路由（如 Tab 切换）
+    init(
+        path: String,
+        transition: TransitionStyle
+    ) {
+        self.path = path
+        self.transition = transition
+        self.handler = nil
+    }
+    
+    func createViewController(params: RouteParams) throws -> UIViewController? {
         guard let params = params as? Params else {
             throw RouteError.invalidParams(
                 expected: String(describing: Params.self),
                 actual: params.toQuery()
             )
         }
-        return handler(params)
+        return handler?(params)
     }
 }
+
+//struct Route<Params: RouteParams>: RouteProtocol {
+//    let path: String
+//    let transition: TransitionStyle
+//    private let handler: ((Params) -> UIViewController)?
+//    
+//    var paramsType: RouteParams.Type { Params.self }
+//    
+//    var requiresViewController: Bool {
+//        handler != nil
+//    }
+//    
+//    init(
+//        path: String,
+//        transition: TransitionStyle,
+//        handler: @escaping (Params) -> UIViewController
+//    ) {
+//        self.path = path
+//        self.transition = transition
+//        self.handler = handler
+//    }
+//    
+//    func createViewController(params: RouteParams) throws -> UIViewController {
+//        guard let params = params as? Params else {
+//            throw RouteError.invalidParams(
+//                expected: String(describing: Params.self),
+//                actual: params.toQuery()
+//            )
+//        }
+//        return handler?(params)
+//    }
+//}

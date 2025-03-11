@@ -8,10 +8,18 @@
 import Foundation
 import UIKit
 
+// Tab 标识协议
+protocol TabIdentifiable {
+    var tabIdentifier: String { get }
+}
+
 // MARK: - 路由管理器
 final class Router {
     private static var routes: [String: any RouteProtocol] = [:]
     private static let queue = DispatchQueue(label: "com.router.queue", attributes: .concurrent)
+    
+    // 添加 Tab 控制器引用（需提前注册）
+    static weak var tabBarController: UITabBarController?
     
     // 注册路由
     static func register<Params: RouteParams>(_ route: Route<Params>) {
@@ -52,7 +60,9 @@ final class Router {
         
         // 执行跳转
         do {
-            let targetVC = try route.createViewController(params: params)
+            guard let targetVC = try route.createViewController(params: params) else {
+                throw RouteError.unregisteredRoute(path: "")
+            }
             try performTransition(route.transition, target: targetVC)
         } catch {
             throw RouteError.transitionFailed(description: error.localizedDescription)
@@ -85,7 +95,53 @@ final class Router {
             
         case .pop(let animated):
             topVC.navigationController?.popViewController(animated: animated)
+            
+        case .switchTab(let index):
+            try switchTab(index: index)
+            
+        case .switchTabByIdentifier(let id):
+            try switchTab(identifier: id)
         }
+    }
+    
+    // Tab 切换实现
+    @MainActor
+    private static func switchTab(index: Int) throws {
+        guard let tabBarController = self.tabBarController else {
+            throw RouteError.transitionFailed(description: "Tab controller not registered")
+        }
+        
+        guard index >= 0 && index < tabBarController.viewControllers?.count ?? 0 else {
+            throw RouteError.invalidTabIndex(max: tabBarController.viewControllers?.count ?? 0 - 1)
+        }
+        
+        tabBarController.selectedIndex = index
+        // 重置导航栈（可选）
+        if let nav = tabBarController.selectedViewController as? UINavigationController {
+            nav.popToRootViewController(animated: false)
+        }
+    }
+    
+    @MainActor
+    private static func switchTab(identifier: String) throws {
+        guard let tabBarController = self.tabBarController else {
+            throw RouteError.transitionFailed(description: "Tab controller not registered")
+        }
+        
+        guard let viewControllers = tabBarController.viewControllers else {
+            throw RouteError.tabNotFound(identifier: identifier)
+        }
+        
+        for (index, vc) in viewControllers.enumerated() {
+            let tabVC = (vc as? UINavigationController)?.viewControllers.first ?? vc
+            if let identifiable = tabVC as? TabIdentifiable,
+               identifiable.tabIdentifier == identifier {
+                tabBarController.selectedIndex = index
+                return
+            }
+        }
+        
+        throw RouteError.tabNotFound(identifier: identifier)
     }
 }
 

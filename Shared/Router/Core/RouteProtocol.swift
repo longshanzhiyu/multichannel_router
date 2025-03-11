@@ -11,5 +11,5 @@ protocol RouteProtocol {
     var path: String { get }
     var transition: TransitionStyle { get }
     var paramsType: RouteParams.Type { get }
-    func createViewController(params: RouteParams) throws -> UIViewController
+    func createViewController(params: RouteParams) throws -> UIViewController?
 }

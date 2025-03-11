@@ -7,7 +7,8 @@
 
 import UIKit
 
-class UserProfileViewController: UIViewController {
+class UserProfileViewController: UIViewController, TabIdentifiable {
+    let tabIdentifier: String = "profile"
     
     let userId: String
     let isVIP: Bool

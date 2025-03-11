@@ -13,6 +13,8 @@ enum RouteError: Error, LocalizedError {
     case invalidParams(expected: String, actual: [String: Any])
     case intercepted(interceptorID: String)
     case transitionFailed(description: String)
+    case invalidTabIndex(max: Int)
+    case tabNotFound(identifier: String)
     
     var errorDescription: String? {
         switch self {
@@ -24,6 +26,10 @@ enum RouteError: Error, LocalizedError {
             return "Route intercepted by: \(id)"
         case .transitionFailed(let desc):
             return "Transition failed: \(desc)"
+        case .invalidTabIndex(let max):
+            return "invalid tab index: \(max)"
+        case .tabNotFound(let identifier):
+            return "tab \(identifier) not found"
         }
     }
 }
